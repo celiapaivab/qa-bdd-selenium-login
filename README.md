@@ -1,152 +1,86 @@
-# Selenium Template
+# Behavior-Driven Automated Login Tests — Herokuap
+![QA](https://img.shields.io/badge/Tests-Automated-blue)
+![Framework](https://img.shields.io/badge/Behave-BDD-green)
+![Language](https://img.shields.io/badge/Python-3.x-yellow)
+![Reports](https://img.shields.io/badge/Allure-Reports-lightgrey)
+![Pattern](https://img.shields.io/badge/POM-Page%20Object%20Model-orange)
+![Python application](https://github.com/celiapaivab/qa-bdd-selenium-login/actions/workflows/python-app.yml/badge.svg?branch=main)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/celia-bruno)
 
-Este repositório é um template base para automação de testes com Selenium e Pytest, com suporte para:
 
-- Estrutura modular (Page Object Model)
-- Pipeline CI/CD com GitHub Actions
-- Relatórios HTML (opcional)
-- Testes BDD com Gherkin (opcional)
+## 📌 Project Overview
+This project was developed as part of my QA learning journey, focusing on automated testing for a login feature using BDD (Behavior-Driven Development) with Behave, Selenium WebDriver, and Allure Reports.
 
+The goal is to practice end-to-end functional testing with realistic scenarios, validating both positive and negative flows, and generating professional reports for better traceability of results.
 
----
+## 🎯 Project Goals
+- Automate login scenarios following the BDD approach.
+- Validate successful and unsuccessful authentication flows.
+- Execute tests in headless mode for CI/CD pipelines.
+- Generate HTML reports using Allure.
+- Run tests automatically via GitHub Actions.
 
-## Como usar
+## 🔧 Technologies and Tools
+- Python
+- Behave (BDD framework using Gherkin syntax)
+- Selenium WebDriver
+- Allure Reports
+- GitHub Actions (CI/CD)
 
-Para iniciar um novo projeto baseado neste template, siga os passos:
-
-1. Clique no botão **"Use this template"**.
-
-2. Escolha um nome para o novo repositório e clique em **"Create repository from template"**.
-
-3. Clone o repositório recém-criado para sua máquina local:
+## ▶️ How to Run
+1. Clone the repository:
 ```bash
-git clone https://github.com/SEU_USUARIO/NOME_DO_NOVO_REPOSITORIO.git
-cd NOME_DO_NOVO_REPOSITORIO
+git clone https://github.com/celiapaivab/qa-bdd-selenium-login
+cd qa-bdd-selenium-login
 ```
 
-4. Crie e ative um ambiente virtual Python:
+2. Create and activate a virtual environment:
 ```bash
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+source venv/bin/activate   # Linux/macOS
+venv\Scripts\activate      # Windows
 ```
 
-5. Instale as dependências do projeto:
+3. Install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-6. Execute os testes localmente:
+4. Run Tests (Simple Output)
 ```bash
-pytest
-pytest --html=reports/report.html # Com relatório HTML
+behave
 ```
 
-
-## Estrutura do projeto
-
-### `docs/`
-
-Pasta destinada a arquivos de documentação e materiais complementares do projeto.
-
----
-
-### `.github/workflows/`
-
-Contém o arquivo de configuração do **GitHub Actions**, que executa os testes automaticamente em cada `push` ou `pull request` na branch `main`.
-
-Neste template, o workflow:
-- Faz checkout do código
-- Cria o ambiente virtual
-- Instala as dependências listadas no `requirements.txt`
-- Executa os testes com o `pytest`
-- (Opcional) Gera um relatório HTML dos testes e salva como artefato
-
----
-
-### `features/`
-
-Contém os arquivos **Gherkin (.feature)**, que descrevem cenários de teste no formato **BDD**.
-
-- Esta pasta é **opcional**
-- Instale o `pytest-bdd` no `requirements.txt`.
-- Cada arquivo `.feature` descreve cenários em linguagem natural (Given, When, Then).
-- Os testes em Python devem implementar os steps definidos nos `.feature`.
-
----
-
-### `pages/`
-
-Contém as classes do **Page Object Model (POM)**, padrão de design que organiza elementos e ações de cada página da aplicação em objetos Python.
-
-- Cada página ou componente importante da aplicação tem uma classe própria.
-- Isso facilita a manutenção e o reuso dos códigos que interagem com a interface.
-- Exemplo: `login_page.py` pode ter métodos para preencher usuário, senha e clicar no botão.
-
----
-
-### `reports/`
-
-Esta pasta armazena os relatórios gerados pelos testes, como os relatórios HTML criados pelo `pytest-html`.
-
-- Os relatórios são **gerados automaticamente** durante a execução dos testes com o comando:
-  ```bash
-  pytest --html=reports/report.html
-  ```
-- A pasta reports/ deve estar incluída no .gitignore.
-- Os relatórios ajudam a visualizar os resultados dos testes, com detalhes sobre testes que passaram, falharam, tempos e erros.
-- No pipeline do GitHub Actions, esses relatórios são salvos como artefatos para consulta posterior.
-
----
-
-### `tests/`
-
-Esta pasta contém os scripts de teste automatizados que usam o framework **pytest** para executar as verificações.
-
-- Aqui ficam os testes que interagem com a aplicação por meio dos **Page Objects** definidos em `pages/`.
-- Os testes devem ser escritos em funções ou classes seguindo as convenções do pytest.
-- Caso use BDD com `pytest-bdd`, esta pasta também conterá as definições dos steps (funções que implementam as ações descritas nos arquivos `.feature`).
-- Exemplo: um teste de login simples que utiliza o Page Object `LoginPage`.
-
----
-
-### `utils/`
-
-Esta pasta armazena **configurações e utilitários** para os testes automatizados.
-
-- **`conftest.py`** — Define **fixtures** compartilhadas para preparar o ambiente de teste, como criar e encerrar o WebDriver (navegador).  
-- **`data.py`** — Centraliza informações fixas do projeto (constantes).
-
----
-
-### `.gitignore`
-
-Arquivo que lista os arquivos e pastas que o Git deve **ignorar** e não versionar no repositório.  
-Exemplos comuns no projeto:
-- Pastas de ambiente virtual (`venv/`)  
-- Arquivos de cache do Python (`__pycache__/`)  
-- Pastas com relatórios gerados (`reports/`)   
-
----
-
-### `README.md`
-
-Arquivo de documentação principal do projeto, que contém informações importantes para quem for usar ou contribuir no repositório.  
-Neste template, o README explica:  
-- Como iniciar e usar o projeto  
-- Estrutura das pastas  
-- Detalhes sobre as configurações e testes  
-
----
-
-### `requirements.txt`
-
-Arquivo que lista todas as **dependências Python** necessárias para rodar os testes.  
-Ao executar:  
+5. Run the tests locally with Allure:
 ```bash
-pip install -r requirements.txt
+behave -f allure_behave.formatter:AllureFormatter -o reports/allure-results
+allure serve reports/allure-results
 ```
 
-o ambiente virtual instala todas as bibliotecas necessárias automaticamente, garantindo que o projeto funcione corretamente.
+## 🧾 Results
+- BDD scenarios implemented for positive and negative login flows.
+- Headless execution configured for CI pipelines.
+- Allure reports generated and published as GitHub Actions artifacts.
+- Test suite running successfully in local and remote environments.
 
----
+## 📚 What I Learned
+- Applied BDD with Behave for readable test scenarios.
+- Used Selenium WebDriver for browser automation.
+- Generated and published Allure Reports.
+- Integrated automated tests into a GitHub Actions pipeline.
+
+## 💡 Future Improvements
+- Add more scenarios to cover additional edge cases.
+- Implement parameterized steps for improved reusability.
+- Integrate cross-browser testing.
+- Schedule nightly automated test runs.
+
+## 📂 Project Files
+- `.github/workflows/python-app.yml` — CI/CD pipeline configuration.  
+- `features/` — BDD feature files and step definitions, including:  
+  - `login.feature` — Defines all login scenarios. 
+  - `steps/` — Python step implementations mapping Gherkin steps to Selenium actions.  
+  - `environment.py` — Hooks for setup and teardown of WebDriver instances.  
+- `pages/` — Page Object Model implementation for the login page.  
+- `reports/` — Generated Allure results (excluded from repo).  
+- `requirements.txt` — Python dependencies.
