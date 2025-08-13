@@ -1,6 +1,6 @@
 # URL base da aplicação
-BASE_URL = "https://seu-site-de-teste.com"
+BASE_URL = "https://the-internet.herokuapp.com/login"
 
 # Credenciais de exemplo
-USERNAME = "usuario_teste"
-PASSWORD = "senha123"
+USERNAME = "tomsmith"
+PASSWORD = "SuperSecretPassword!"

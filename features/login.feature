@@ -1,8 +1,8 @@
-Feature: Login no sistema
+Feature: Login functionality
 
-  Scenario: Login com sucesso
-    Given que estou na página de login
-    When preencho o campo usuário com "usuario_teste"
-    And preencho o campo senha com "senha123"
-    And clico no botão de login
-    Then devo ver a página inicial com a mensagem "Bem-vindo, usuario_teste"
+  Scenario: Successful login
+    Given I am on the login page
+    When I enter valid credentials
+    And I click the login button
+    Then I should be redirected to the secure area
+    And I should see a success message
