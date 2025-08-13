@@ -11,29 +11,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout do código
+    - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Configurar Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
 
-    - name: Instalar dependências
+    - name: Install dependencies
       run: |
         python -m venv venv
         source venv/bin/activate
         pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Executar testes com Behave
+    - name: Run tests with Behave
       run: |
         source venv/bin/activate
-        mkdir -p reports
-        behave --format pretty --format html --out reports/report.html
+        behave
       continue-on-error: true
 
-    - name: Upload do relatório (opcional)
+    - name: Upload report (optional)
       uses: actions/upload-artifact@v4
       with:
         name: test-report
