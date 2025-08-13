@@ -1,0 +1,6 @@
+selenium
+pytest
+pytest-html    # (Opcional) Relatório em HTML dos testes
+pytest-bdd     # (Opcional) Suporte a BDD com Gherkin
+
+
