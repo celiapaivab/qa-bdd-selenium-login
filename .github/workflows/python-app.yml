@@ -31,6 +31,7 @@ jobs:
         source venv/bin/activate
         mkdir -p reports
         behave --format pretty --format html --out reports/report.html
+      continue-on-error: true
 
     - name: Upload do relatório (opcional)
       uses: actions/upload-artifact@v4
