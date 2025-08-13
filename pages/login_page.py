@@ -8,7 +8,7 @@ class LoginPage:
         self.username_input = (By.ID, "username")
         self.password_input = (By.ID, "password")
         self.login_button = (By.CSS_SELECTOR, "button.radius")
-        self.flash_message = (By.ID, "flash")
+        self.error_message = (By.CSS_SELECTOR, ".flash.error")
 
     def load(self):
         self.driver.get(self.url)
@@ -23,6 +23,9 @@ class LoginPage:
 
     def click_login(self):
         self.driver.find_element(*self.login_button).click()
+
+    def get_error_message(self):
+        return self.driver.find_element(*self.error_message).text
 
     def login_valid_user(self):
         self.enter_username(USERNAME)
