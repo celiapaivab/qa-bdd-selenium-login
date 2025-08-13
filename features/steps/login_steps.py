@@ -23,6 +23,16 @@ def add_invalid_password(context):
     context.login_page.enter_username(USERNAME)
     context.login_page.enter_password(INVALID_PASSWORD)
 
+@when("I enter empty username")
+def add_empty_username(context):
+    context.login_page.enter_username("")
+    context.login_page.enter_password(PASSWORD)
+
+@when("I enter empty password")
+def add_empty_password(context):
+    context.login_page.enter_username(USERNAME)
+    context.login_page.enter_password("")
+
 @when("I click the login button")
 def click_button(context):
     context.login_page.click_login()
@@ -47,3 +57,19 @@ def check_username_error(context):
 def check_password_error(context):
     message = context.login_page.get_error_message()
     assert "Your password is invalid!" in message
+
+@given("I am logged in the secure page")
+def log_in(context):
+    context.login_page = LoginPage(context.driver)
+    context.login_page.load()
+    context.login_page.login_valid_user()
+    context.secure_page = SecureAreaPage(context.driver)
+
+@when("I click the logout button")
+def click_logout_button(context):
+    context.secure_page.click_logout()
+
+@then("I should be redirected to the login page")
+def return_login_area(context):
+    tittle = context.login_page.get_page_tittle()
+    assert "Login Page" in tittle

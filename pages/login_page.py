@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 from utils.data import *
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage:
     def __init__(self, driver):
@@ -9,6 +11,7 @@ class LoginPage:
         self.password_input = (By.ID, "password")
         self.login_button = (By.CSS_SELECTOR, "button.radius")
         self.error_message = (By.CSS_SELECTOR, ".flash.error")
+        self.page_tittle = (By.TAG_NAME, "h2")
 
     def load(self):
         self.driver.get(self.url)
@@ -25,7 +28,11 @@ class LoginPage:
         self.driver.find_element(*self.login_button).click()
 
     def get_error_message(self):
+        WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located(self.error_message))
         return self.driver.find_element(*self.error_message).text
+
+    def get_page_tittle(self):
+        return self.driver.find_element(*self.page_tittle).text
 
     def login_valid_user(self):
         self.enter_username(USERNAME)

@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class SecureAreaPage:
     def __init__(self, driver):
@@ -14,4 +16,4 @@ class SecureAreaPage:
         return self.driver.find_element(*self.page_tittle).text
 
     def click_logout(self):
-        self.driver.find_element(*self.logout_button).click()
+        WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(self.logout_button)).click()
