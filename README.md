@@ -8,26 +8,26 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/celia-bruno)
 
 
-## 📌 Project Overview
+## Project Overview
 This project was developed as part of my QA learning journey, focusing on automated testing for a login feature using BDD (Behavior-Driven Development) with Behave, Selenium WebDriver, and Allure Reports.
 
 The goal is to practice end-to-end functional testing with realistic scenarios, validating both positive and negative flows, and generating professional reports for better traceability of results.
 
-## 🎯 Project Goals
+## Project Goals
 - Automate login scenarios following the BDD approach.
 - Validate successful and unsuccessful authentication flows.
 - Execute tests in headless mode for CI/CD pipelines.
 - Generate HTML reports using Allure.
 - Run tests automatically via GitHub Actions.
 
-## 🔧 Technologies and Tools
+## Technologies and Tools
 - Python
 - Behave (BDD framework using Gherkin syntax)
 - Selenium WebDriver
 - Allure Reports
 - GitHub Actions (CI/CD)
 
-## ▶️ How to Run
+## How to Run
 1. Clone the repository:
 ```bash
 git clone https://github.com/celiapaivab/qa-bdd-selenium-login
@@ -57,25 +57,25 @@ behave -f allure_behave.formatter:AllureFormatter -o reports/allure-results
 allure serve reports/allure-results
 ```
 
-## 🧾 Results
+## Results
 - BDD scenarios implemented for positive and negative login flows.
 - Headless execution configured for CI pipelines.
 - Allure reports generated and published as GitHub Actions artifacts.
 - Test suite running successfully in local and remote environments.
 
-## 📚 What I Learned
+## What I Learned
 - Applied BDD with Behave for readable test scenarios.
 - Used Selenium WebDriver for browser automation.
 - Generated and published Allure Reports.
 - Integrated automated tests into a GitHub Actions pipeline.
 
-## 💡 Future Improvements
+## Future Improvements
 - Add more scenarios to cover additional edge cases.
 - Implement parameterized steps for improved reusability.
 - Integrate cross-browser testing.
 - Schedule nightly automated test runs.
 
-## 📂 Project Files
+## Project Files
 - `.github/workflows/python-app.yml` — CI/CD pipeline configuration.  
 - `features/` — BDD feature files and step definitions, including:  
   - `login.feature` — Defines all login scenarios. 
